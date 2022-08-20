@@ -12,7 +12,7 @@ function App() {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Basic ${btoa(`${process.env.REACT_APP_USER}:${process.env.REACT_APP_PASSWORD}`)}`
+          'Authorization': `Basic ${btoa(`${process.env.USER}:${process.env.PASSWORD}`)}`
         }
       })
       const data = await res.json()
