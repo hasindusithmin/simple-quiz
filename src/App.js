@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
 import './App.css';
 
 function App() {
+useEffect(()=>{
+  const getQuiz = async()=>{
+    const res = await fetch('https://blockchain-quiz.deta.dev/',{
+      method:'GET',
+      headers:{
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${btoa(`${process.env.REACT_APP_USER}:${process.env.REACT_APP_PASSWORD}`)}`
+      }
+    })
+    const data = await res.json()
+    console.log(data);
+  }
+  getQuiz()
+},[])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
     </div>
   );
 }
